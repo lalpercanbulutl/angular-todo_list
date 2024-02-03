@@ -1,0 +1,36 @@
+<div style="text-align: center">
+  <h3>Todo Input</h3>
+  <div class="header">
+    <input
+      [(ngModel)]="newTaskInput"
+      matInput
+      placeholder="write your Tasks here... "
+    />
+    <button
+      (click)="addNewTask()"
+      type="button"
+      mat-raised-button
+      color="primary"
+    >
+      Add New Task
+    </button>
+  </div>
+  <h3>TodoList</h3>
+  <div class="buttons">
+    <button type="button" mat-raised-button color="primary">All</button>
+    <button type="button" mat-raised-button color="accent">Done</button>
+    <button type="button" mat-raised-button color="warn">Todo</button>
+  </div>
+  <div class="container">
+    @for (task of tasks; track $index){
+    <div class="task">
+      <span> {{ $index + 1 }} -) {{ task }}</span>
+      <div>
+        <input type="checkbox" name="" id="" />
+        <mat-icon (click)="editTask($index)">edit</mat-icon>
+        <mat-icon (click)="deleteTask($index)">delete</mat-icon>
+      </div>
+    </div>
+    }
+  </div>
+</div>
